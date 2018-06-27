@@ -1,0 +1,1 @@
+INSERT INTO `world`.`languages` (`id`, `country_code`, `language`, `is_official`, `percentage`) VALUES ('985', 'ZWE', 'TEST', 'F', '0.1');

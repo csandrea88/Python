@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title></title>
+      <meta charset="UTF-8">
+
+      {% load static %}
+        <!-- The line above tells Django to be ready to listen for static files -->
+        <!--link rel="stylesheet" href="{% static 'logreg/css/logreg.css' %}" media="screen" title="no title"  charset="utf-8"-->
+            
+        <title>Delete a Course</title>
+
+   </head>
+   <body>
+     <h1>Are you sure you want to delete the following course</h1>
+
+     <p>Name: {{course}}</p>
+     <p>Description: {{desc}}</p>
+
+     <form action='/course' method='post'>
+        {% csrf_token %}
+       <input type='submit' value='No'>
+    </form>
+    <form action='/destroy' method='post'>
+        {% csrf_token %}
+       <input type='submit' value='Yes! I want to delete this'>
+    </form>
+     
+    
+  </body>
+</html>

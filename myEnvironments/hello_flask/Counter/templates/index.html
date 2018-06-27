@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}">
+        -->
+          <!-- linking a css style sheet -->
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing_page.css') }}">
+          <!-- linking a javascript file -->
+          <script type="text/javascript" src="{{ url_for('static', filename='js/landing_page.js') }}"></script>
+          
+          <!-- linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}copy">
+          -->
+        <title>Counter</title>
+        
+     </head>
+    <body>
+
+        <h1>Counter:  {{counter}}</h1>
+        <form action='/double' method='post'>
+            <input type='submit' value='Double'>
+        </form>
+        <form action='/reset' method='post'>
+            <input type='submit' value='Reset'>
+        </form>
+         
+    </body>
+</html>

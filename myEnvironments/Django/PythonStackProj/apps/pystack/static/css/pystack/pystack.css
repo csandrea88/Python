@@ -1,0 +1,12 @@
+body {
+    background-color: slategray;
+}
+
+#main-content {
+    background-color: thistle;  
+    height: 800px;
+}
+
+a {
+    color: #111111;
+}

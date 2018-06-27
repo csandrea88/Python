@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}">
+        -->
+          <!-- linking a css style sheet 
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing_page.css') }}">
+          <linking a javascript file 
+          <script type="text/javascript" src="{{ url_for('static', filename='js/landing_page.js') }}"></script>
+          -->
+          <!-- linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}copy">
+          -->
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/DojoSurveyVals.css') }}">
+
+          <title>Dojo Survey Vals</title>
+  
+     </head>
+    <body>
+
+        <h1>Dojo Survey Vals</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <h3 class="red" >{{message}}</h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action='/process' method='post'>
+            Name: <input type='text' name='name'><br><br>
+            Dojo Location: 
+            <select  name="dojoloc">
+                <option value="Chicago">Chicago</option>
+                <option value="Seatle">Seatle</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Silicon Valley">Silicon Valley</option>
+                <option value="Tulsa">Tulsa</option>
+            </select><br><br>
+            Favorite Language:
+            <select name="favlang">
+                <option>Python</option>
+                <option>javascript</option>
+                <option>c#</option>
+                <option>Ruby</option>
+                <option>Java</option>s
+            </select><br><br>
+            <textarea name="comment">Comment here, optional...</textarea><br><br>
+            
+            <!--Email: <input type='text' name='email'-->
+            <input type='submit' value='New User'>
+        </form>   
+    </body>
+</html>

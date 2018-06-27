@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <!--  {% load static %} -->
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <!--link rel="stylesheet" href="{% static 'ourApp/css/main.css' %}" media="screen" title="no title"  charset="utf-8"-->
+      <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->    
+      {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <link rel="stylesheet" href="{% static 'sessword/css/sessword.css' %}" media="screen" title="no title"  charset="utf-8">
+  
+    </head>
+    <body>
+    <div id="leftcol">
+        <form action="/sessword/process" method="post">
+            {% csrf_token %}
+            <h2>Add a New Word</h2><br>
+            <input type="text" name="word"><br><br>
+            
+            <h3>Choose a new color</h3>
+            <input type="radio" id="color" name="color" value="red" checked> red
+            <input type="radio" id="color" name="color" value="green"> green
+            <input type="radio" id="color" name="color" value="blue"> blue <br><br> 
+
+            <input type="checkbox" name="large" value="large" >Show in large fonts<br><br>
+            <input type="submit" name = "AddtoSession" value="Add to Session">
+        </form><br>
+        <form action="/sessword/clear" method="post">
+            {% csrf_token %}
+            <input type="submit" name = "ClearSession" value="Clear Session">
+        </form>
+    </div>
+    <div id="rightcol">
+        {% for word, color, large in request.session.wlist %}
+            <p class ="{{color}} {{large}}">{{word}}</p>
+        {% endfor %}
+    </div>
+    
+
+    </body>
+  </html>

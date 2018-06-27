@@ -1,0 +1,21 @@
+#leftcol {
+    width: 30%;
+    display: inline-block;
+}
+#rightcol {
+    width: 30%;
+    display:inline-block;
+    vertical-align: top;
+}
+.large {
+    font-size: large;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}">
+        -->
+          <!-- linking a css style sheet 
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing_page.css') }}">
+          <linking a javascript file 
+          <script type="text/javascript" src="{{ url_for('static', filename='js/landing_page.js') }}"></script>
+          -->
+          <!-- linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}copy">
+          
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/DojoSurveyVals.css') }}">
+        -->
+          <title>Registration</title>
+  
+     </head>
+    <body>
+
+        <h1>Please enter:</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <h3 class="red" >{{message}}</h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action='/register' method='post'>
+            
+            First Name: <input type='text' name='fname'><br><br>
+            Last Name: <input type='text' name='lname'><br><br>
+            Email: <input type='text' name='email'><br><br>
+            Userid: <input type='text' name='userid'><br><br>
+            Password: <input type='text' name='password'><br><br>
+            Password Confirm: <input type='text' name='cpassword'><br><br>
+            
+            <input type='submit' value='Register'>
+        </form>   
+    </body>
+</html>

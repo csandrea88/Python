@@ -1,0 +1,28 @@
+.red {
+    color: red;
+    font-weight: bold;
+    font-size:small;
+}
+submit{
+    display: inline-block;  
+}
+#firstcol {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+}
+#secondcol {
+    width: 20%;
+    display:inline-block;
+    vertical-align: top;
+}
+#thirdcol {
+    width: 20%;
+    display:inline-block;
+    vertical-align: top;
+}
+#fourthcol {
+    width: 20%;
+    display:inline-block;
+    vertical-align: top;
+}

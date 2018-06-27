@@ -1,0 +1,14 @@
+#leftcol {
+    width: 30%;
+    display: inline-block;
+}
+#middlecol {
+    width: 30%;
+    display:inline-block;
+    vertical-align: top;
+}
+#rightcol {
+    width: 30%;
+    display:inline-block;
+    vertical-align: top;
+}

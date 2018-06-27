@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title></title>
+      <meta charset="UTF-8">
+                   
+      <title>Checkout</title>
+
+   </head>
+   <body>
+     <h1>Thank you for your business!</h1><br><br>
+     <p>We charged your credit card {{request.session.currspend}}</p><br><br>
+     <p>You have bought {{request.session.acumqty}} items and total spend is {{request.session.acumtot}}</p><br><br>
+     
+
+     <form action='/amad/goback' method='post'>
+        {% csrf_token %}
+        <input type='submit' value='Go Back'>
+     </form>  
+  </body>
+</html>

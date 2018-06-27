@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title></title>
+      <meta charset="UTF-8">
+
+      <!--
+        <name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+        <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+       -->
+
+                   
+      <title>Survey Form</title>
+
+   </head>
+   <body>
+     <h1>Thanks for submitting this form! You have submitted this {{request.session.counter}} times.</h1>
+     
+     <p>Name:  {{request.session.name}}</p><br>
+     <p>Location:  {{request.session.dojoloc}}</p><br>
+     <p>Favorite Language: {{request.session.favlang}}</p><br>
+     <p>Comment:  {{request.session.comment}}</p><br>
+
+     <form action='/survform/goback' method='post'>
+        {% csrf_token %}
+        <input type='submit' value='Go Back'>
+     </form>  
+  </body>
+</html>

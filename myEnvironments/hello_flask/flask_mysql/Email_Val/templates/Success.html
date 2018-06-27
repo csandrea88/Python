@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>Email Validation</title>
+</head>
+<body>
+
+<h2>"The Email address you entered {{Email_validated}} is valid! Thank You!</h2>
+  
+<h3>Emails Entered:</h3>
+
+{% for email in all_emails: %}
+<p>{{email['Email_Addrs']}}</p>
+<p>{{email['created_on']}}</p>
+{% endfor %}
+
+
+
+ 
+</body>
+</html>

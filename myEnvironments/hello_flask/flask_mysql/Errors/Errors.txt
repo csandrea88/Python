@@ -1,0 +1,15 @@
+Conditions: 
+
+1.) Incorrect userid and password
+Error: sqlalchemy.exc.OperationalError
+OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'andreacronin'@'localhost' (using password: NO)") (Background on this error at: http://sqlalche.me/e/e3q8)
+
+2.) No or invalid port
+Error: ValueError: invalid literal for int() with base 10: ''
+
+5.) missing & invalid database
+Error: File "/Users/andreacronin/Desktop/CodingBootcamp/CodingDojo/Python/myEnvironments/hello_flask/flask_mysql/Errors/mysqlconnection.py", line 9
+'database': , # we got db as an argument
+
+7.) No or invalid host
+No Error

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        -->
+        {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <link rel="stylesheet" href="{% static 'css/cour/cour.css' %}" media="screen" title="no title"  charset="utf-8">
+         <title>Courses</title>
+     </head>
+    
+     <body>
+        <h2>Add a new course:</h2>
+        <form action='/add' method='post'>
+            {% csrf_token %}
+            <input type="text" name="fcname"><br>
+            <input type="text" name="fdesc" height="100px"><br>
+            <input type='submit' value='Add'>
+        </form>
+
+        <h1>Courses</h1>
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </tr>
+            {% for course in courses %}
+            <tr>
+                <td>{{course.id}}</td>
+                <td>{{course.course}}</td>
+                <td>{{course.desc}}</td>
+                <td>{{course.created_at}}</td>
+                <td>{{course.Like}}</td>
+                <td>
+                    <form action='/remove' method='post'>
+                        {% csrf_token %}
+                        <!--input type ="hidden" name="idremove" value="{{course.id}}"-->  
+                        <input type='submit' value='Remove'>
+                    </form>
+                    <form action='{{course.id}}/like' method='post'>
+                        {% csrf_token %}
+                        <!--input type ="hidden" name="idlike" value="{{course.id}}"-->  
+                        <input type='submit' value='Like'>
+                    </form>
+                    <form action='/edit' method='post'>
+                        {% csrf_token %}
+                        <!--input type ="hidden" name="idedit" value="{{course.id}}"-->
+                        <input type='submit' value='Edit'>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+        </div>
+    
+    </body>
+</html>

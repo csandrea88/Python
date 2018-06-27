@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        {% load static %}
+        <!-- The line above tells Django to be ready to listen for static files -->
+        <link rel="stylesheet" href="{% static 'css/ninjgold/ninjgold.css' %}" media="screen" title="no title"  charset="utf-8">
+          
+          
+        
+        <title>Ninja Gold Django</title>
+        
+     </head>
+    <body>
+
+        <h1>Total Gold: {{request.session.totalgold}}</h1>
+        
+        <form id="gamebox" action='/ninjgold/process' method='post'>
+            {% csrf_token %}
+            <h1>Farm</h1><br>
+            <p>(Earns 10 to 20)</p>
+            <input type="hidden" name="action" value="farm"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form>
+
+        
+        <form id="gamebox" action='/ninjgold/process' method='post'>
+            {% csrf_token %}
+            <h1>Cave</h1><br>
+            <p>(Earns 5 to 10)</p>
+            <input type="hidden" name="action" value="cave"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form>
+
+        
+        <form id="gamebox" action='/ninjgold/process' method='post'>
+            {% csrf_token %}
+            <h1>House</h1><br>
+            <p>(Earns 2 to 5)</p>
+            <input type="hidden" name="action" value="house"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form>
+
+        
+        <form id="gamebox" action='/ninjgold/process' method='post'>
+            {% csrf_token %}
+            <h1>Casino</h1><br>
+            <p>(Earns 0 to -50)</p>
+            <input type="hidden" name="action" value="casino"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form> 
+        
+        <br><br>Activities:<br>
+        <textarea form="gamebox" name="Activities" rows="15" cols="175">
+            {% for message in request.session.activities %}
+                {{message}}
+            {% endfor %} 
+        </textarea>
+         
+    </body>
+</html>

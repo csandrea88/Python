@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title></title>
+      <meta charset="UTF-8">
+
+      {% load static %}
+        <!-- The line above tells Django to be ready to listen for static files -->
+        <!--link rel="stylesheet" href="{% static 'logreg/css/logreg.css' %}" media="screen" title="no title"  charset="utf-8"-->
+            
+        <title>Delete a Course</title>
+
+   </head>
+   <body>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+
+     <h1>Update Appt:</h1>
+
+     <a href="/update/dashboard">Dashboard</a>
+     
+      <form action="/{{upt_appt.id}}/update" method='post'>
+        {% csrf_token %}
+          Task: <input type="task" name="task" value="{{upt_appt.task}}"><br><br>
+          Status:  <select selected = "{{upt_appt.status}}" name="status" >
+            <option value="Pending">Pending</option>
+            <option value="Done">Done</option>
+            <option value="Missed">Missed</option>
+          </select><br><br>
+          Date:  <input type="date" name="date" value="{{upt_appt.date}}"><br><br>
+          Time:  <input type='time' name="time" value='{{upt_appt.time}}'><br><br>
+          <input type='submit' value='Update'>
+        
+      </form>
+     
+    
+  </body>
+</html>

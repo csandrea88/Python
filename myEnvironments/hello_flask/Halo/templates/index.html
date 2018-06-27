@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}">
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}copy">
+          linking a javascript file 
+          script type="text/javascript" src="{{ url_for('static', filename='js/landing_page.js') }}"></script
+         
+        -->
+          <!-- linking a css style sheet -->
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Halo.css') }}">
+          
+          
+        
+        <title>Keys for Halo</title>
+        
+    </head>
+    <body>
+        <h1>Keys:</h1>
+        <div>
+            <table class="table table-bordered">    
+                <tr>
+                    <th>Key</th>
+                    <th>Actions</th>
+                </tr>
+                
+                {% for key in all_keys: %}
+                <tr>
+                    <td><p>{{ key['key'] }}</p></td>
+                    <td>
+                        <form id="getv" action='/getv/{{ key['id'] }}' method='get'>
+                            <input type='submit' value='Get Value'>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+
+                {% if value %}
+                <tr>
+                    <td><h1>Value: {{value}}</h1></td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td><h1>Add a Key:</h1></td>
+                </tr>
+
+                <form id="insert" action='/process' method='post'>
+                    <tr>
+                        <td>
+                            <label for="key">Key: </label><br>
+                            <input type="text" id="key" name="key" value="">
+                            <label for="value">Value: </label><br>
+                            <input type="text" id="value" name="key" value="">
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td><input type='submit' value='Add a Key'></td>
+                    </tr>
+                </form>      
+            </table>
+        </div>   
+
+             
+        
+        
+    </body>
+</html>

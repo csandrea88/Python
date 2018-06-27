@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}">
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}copy">
+          linking a javascript file 
+          script type="text/javascript" src="{{ url_for('static', filename='js/landing_page.js') }}"></script
+         
+        -->
+          <!-- linking a css style sheet -->
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/NinjaGold.css') }}">
+          
+          
+        
+        <title>GreatNumberGame</title>
+        
+     </head>
+    <body>
+
+        <h1>Total Gold: {{totgold}}</h1>
+        
+        <form id="gamebox" action='/process' method='post'>
+            <h1>Farm</h1><br>
+            <p>(Earns 10 to 20)</p>
+            <input type="hidden" name="action" value="farm"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form>
+
+        
+        <form id="gamebox" action='/process' method='post'>
+            <h1>Cave</h1><br>
+            <p>(Earns 5 to 10)</p>
+            <input type="hidden" name="action" value="cave"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form>
+
+        
+        <form id="gamebox" action='/process' method='post'>
+            <h1>House</h1><br>
+            <p>(Earns 2 to 5)</p>
+            <input type="hidden" name="action" value="house"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form>
+
+        
+        <form id="gamebox" action='/process' method='post'>
+            <h1>Casino</h1><br>
+            <p>(Earns 0 to -50)</p>
+            <input type="hidden" name="action" value="casino"><br>
+            <input type='submit' value='Find Gold!'><br>
+        </form> 
+        
+        <br><br>Activities:<br>
+        <textarea form="gamebox" name="Activities" rows="15" cols="175">
+            {% for para in activities: %} 
+                {{para}}
+            {% endfor %} 
+        </textarea>
+         
+    </body>
+</html>

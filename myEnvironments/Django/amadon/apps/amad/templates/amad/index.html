@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        -->
+        {% load static %}
+      <!-- The line above tells Django to be ready to listen for static files -->
+      <link rel="stylesheet" href="{% static 'css/amad/amad.css' %}" media="screen" title="no title"  charset="utf-8">
+         <title>Amadon Store</title>
+     </head>
+    <body>
+
+        <h1>Amadon Store</h1>
+        
+            
+            <div id = "leftcol">
+                <p>Item</p>
+                <p>Dojo T-shirt</p>
+                <p>Dojo Sweatshirt</p>
+                <p>Dojo Cup</p>
+            </div>
+            <div id= "middlecol">
+                <p>Price</p>
+                <p>14.99</p>
+                <p>29.99</p>
+                <p> 9.50</p>
+            </div>
+            <div id= "rightcol">
+                <p>Action</p>
+                <form action='/amad/process' method='post'>
+                    {% csrf_token %}
+                    <select  name="qty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>  
+                    <input type ="hidden" name="prodnum" value="0">  
+                    <input type='submit' value='New User'>
+                </form><br>
+
+                <form action='/amad/process' method='post'>
+                    {% csrf_token %}
+                    <select  name="qty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                    <input type ="hidden" name="prodnum" value="1">
+                    <input type='submit' value='New User'>
+                </form><br>
+                <form action='/amad/process' method='post'>
+                    {% csrf_token %}
+                    <select  name="qty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>  
+                    <input type ="hidden" name="prodnum" value="2">    
+                    <input type='submit' value='New User'>
+                </form><br>
+            </div>  
+    </body>
+</html>
