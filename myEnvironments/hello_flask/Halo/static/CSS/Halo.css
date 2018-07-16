@@ -1,4 +1,4 @@
-#gamebox {
+/* #gamebox {
     display: inline-block;
     border-style: solid;
     border-width: 1px;
@@ -7,5 +7,38 @@
     vertical-align: top;
     padding: 10px;
     text-align: center;
+} */
+.container{
+   margin: 75px;
 }
-
+.loginText {
+    font-size: small;
+    color: darkslategrey;
+    text-align: right;
+    margin:0px;
+}
+.line {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.linespc20 {
+    height: 20px;
+}
+td {
+     width: 50%;
+ }
+ h4 {
+     margin-bottom: 15px;
+ }
+ #LR h4 {
+     margin-left: -15px
+ }
+ #Login h4 {
+     margin-left: -15px
+}
+ form#getset {
+    margin-top: 25%;
+}
+input[type=submit] {
+    margin-right:10px;
+    margin-top: 10px;
+ }

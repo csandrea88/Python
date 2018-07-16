@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!--
+          <name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">  
+          <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}">
+          linking an image
+          <img src="{{ url_for('static', filename='img/my_img.png') }}copy">
+          linking a javascript file 
+          script type="text/javascript" src="{{ url_for('static', filename='js/landing_page.js') }}"></script
+         
+        -->
+          <!-- linking a css style sheet -->
+          <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Halo.css') }}">
+          
+          
+        
+        <title>Keys for Halo</title>
+        
+    </head>
+    <body>
+            <div class="container">
+                
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{message}}</br>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %} 
+                                
+                <p class="loginText">{{session['name']}} / <a href="{{url_for('Logout')}}">logout</a></p>
+                <div class="line">&nbsp;</div>
+                <div class="linespc20"></div>
+                <div class="row">
+                    <div class="col-6">
+                        <!-- One of two columns -->
+                        <h4>Keys:</h4>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Key</th>
+                                <th>Value</th>
+                            </tr>
+                            {% for key in all_keys: %}
+                            <tr>
+                                <td><p>{{ key['key'] }}</p></td>
+                                <td><p>{{ key['value'] }}</p></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+
+                    </div>
+
+                    <div class="col-1">&nbsp;</div>
+
+                    <div class="col-4">
+                    <!-- One of two columns -->
+                        <form id="getset" action="/process" method="post">
+                            <div class="form-group row">
+                                <label for="key">Key: </label><br>
+                                <input type="text" class="form-control" id="key" name="key" value="{{okey}}">
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="value">Value: </label><br>
+                                <input type="text" class="form-control" id="value" name="value" value="{{ovalue}}">
+                            </div>
+                            
+                            <div class="form-group row">
+                                <input class="btn btn-primary" type='submit' name="action" value='Set'>
+                                <input class="btn btn-primary" type='submit' name="action" value='Get'>    
+                            </div>    
+                        </form>      
+
+                    </div>
+                </div>
+                <div class="linespc20"></div>
+                <div class="line">&nbsp;</div>
+            </div>
+            
+            
+            
+            
+
+             
+        
+        
+    </body>
+</html>
